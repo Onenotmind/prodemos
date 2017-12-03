@@ -4,13 +4,13 @@ const path = require('path')
 const cleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
 	context: path.resolve(__dirname, './'),
-	entry: './index.js',
+	entry: '../entry/index.js',
 	output: {
 		filename: '[name].[hash].js',
-		path: path.resolve(__dirname, './dist')
+		path: path.resolve(__dirname, '../dist')
 	},
 	devServer: {
-		contentBase: path.join(__dirname, './dist'),
+		contentBase: path.join(__dirname, '../dist'),
 		compress: true,
 		port: 9105
 	},
@@ -32,8 +32,8 @@ module.exports = {
   },
 	plugins: [
 		new htmlWepackPlugin({
-			template: './index.html'
+			template: '../entry/index.html'
 		}),
-		new cleanWebpackPlugin(['dist'], { root: path.resolve(__dirname, './') })
+		new cleanWebpackPlugin(['dist'], { root: path.resolve(__dirname, '../') })
 	]
 }
